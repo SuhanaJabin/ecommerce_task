@@ -36,7 +36,7 @@ const FlashDeals = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto bg-gradient-to-r from-[#0A141B] to-[#9CF6F6] p-6 sm:p-8 rounded-lg shadow-2xl my-8">
+    <div className="w-xl mx-auto bg-gradient-to-r from-[#0A141B] to-[#9CF6F6] p-6 sm:p-8 rounded-lg shadow-2xl my-8">
       <h2 className="text-2xl sm:text-3xl font-bold text-[#CEB5B7] mb-6 text-center">
         Flash Deals
       </h2>
