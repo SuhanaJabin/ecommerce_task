@@ -37,8 +37,8 @@ const FlashDeals = () => {
   };
 
   return (
-    <div className=" w-200  bg-gradient-to-r from-[#0A141B] to-[#9CF6F6] p-8 rounded-lg shadow-2xl my-8" style={{padding:'1em'}}>
-      <h2 className="text-3xl font-bold text-[#CEB5B7] mb-6 text-center" style={{fontWeight:'bold',marginTop: '1em'}}>
+    <div className="max-w-4xl mx-auto bg-gradient-to-r from-[#0A141B] to-[#9CF6F6] p-6 sm:p-8 rounded-lg shadow-2xl my-8">
+      <h2 className="text-2xl sm:text-3xl font-bold text-[#CEB5B7] mb-6 text-center">
         Flash Deals
       </h2>
 
@@ -47,38 +47,41 @@ const FlashDeals = () => {
           const oldPrice = (product.price * 1.2).toFixed(2); // 20% increase in price
           return (
             <Carousel.Item key={index}>
-              <div className="flex flex-col sm:flex-row items-center justify-between p-6 bg-[#B5D6D6] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" style={{padding:'1em'}}>
-                <div className="flex items-center space-x-6">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between p-4 sm:p-6 bg-[#B5D6D6] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                {/* Product Image */}
+                <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 w-full sm:w-auto">
                   <img
                     src={product.thumbnail}
                     alt={product.title}
-                    className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg shadow-md"
+                    className="w-24 h-24 sm:w-40 sm:h-40 object-cover rounded-lg shadow-md"
                   />
-                  <div>
-                    <p className="text-xl font-semibold text-[#0A141B] truncate">
+                  <div className="text-center sm:text-left mt-4 sm:mt-0">
+                    <p className="text-lg sm:text-xl font-semibold text-[#0A141B] truncate">
                       {product.title}
                     </p>
                     <p className="text-[#0A141B] mt-2">
                       <span className="line-through text-gray-500">
                         ${oldPrice}
                       </span>{" "}
-                      <span className="text-red-600 font-bold text-2xl">
+                      <span className="text-red-600 font-bold text-lg sm:text-2xl">
                         ${product.price}
                       </span>
                     </p>
                     <button
                       onClick={() => dispatch(addToCart(product))}
-                      className="mt-4 bg-[#FF7477] text-white py-2 px-6 rounded-full hover:bg-[#FF5053] hover:scale-105 transition-all duration-200 text-sm font-semibold shadow-md"
+                      className="mt-4 bg-[#FF7477] text-white py-2 px-4 sm:px-6 rounded-full hover:bg-[#FF5053] hover:scale-105 transition-all duration-200 text-sm sm:text-base font-semibold shadow-md w-full sm:w-auto"
                     >
                       Add to Cart
                     </button>
                   </div>
                 </div>
-                <div className="mt-6 sm:mt-0 text-center sm:text-right">
-                  <p className="text-sm text-[#0A141B] text-bold mb-2">
+
+                {/* Countdown Timer */}
+                <div className="mt-6 sm:mt-0 text-center sm:text-right w-full sm:w-auto">
+                  <p className="text-sm text-[#0A141B] font-bold mb-2">
                     Hurry up! Offer ends in:
                   </p>
-                  <div className="text-3xl font-bold text-[#0A141B] bg-[#FFE5B4] p-3 rounded-lg shadow-inner">
+                  <div className="text-xl sm:text-3xl font-bold text-[#0A141B] bg-[#FFE5B4] p-2 sm:p-3 rounded-lg shadow-inner">
                     {formatTime(timeLeft)}
                   </div>
                 </div>

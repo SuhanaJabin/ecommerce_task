@@ -19,7 +19,7 @@ const Cart = () => {
               <div className="ml-4 flex-1">
                 <h3 className="text-xl font-semibold text-[#0A141B]">{item.title}</h3>
                 <p className="text-[#0A141B]">${item.price}</p>
-                <p className="text-[#9CF6F6]">Quantity: {item.quantity}</p>
+                <p className="text-[#0A141B]">Quantity: {item.quantity}</p>
               </div>
               <div className="flex space-x-2">
                 <button
@@ -30,7 +30,7 @@ const Cart = () => {
                 </button>
                 <button
                   onClick={() => dispatch(decrementQuantity(item))}
-                  className="bg-[#9CF6F6] text-white py-1 px-3 rounded hover:bg-[#9CF6F6] hover:opacity-80"
+                  className="bg-[#0A141B] text-white py-1 px-3 rounded hover:bg-[#9CF6F6] hover:opacity-80"
                 >
                   -
                 </button>
