@@ -7,9 +7,8 @@ const FlashDeals = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.items);
   const [selectedProducts, setSelectedProducts] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(24 * 60 * 60); // 24 hours in seconds
+  const [timeLeft, setTimeLeft] = useState(24 * 60 * 60); 
 
-  // Select 5 random products when the component mounts
   useEffect(() => {
     if (products.length > 0) {
       const shuffledProducts = [...products].sort(() => 0.5 - Math.random());
@@ -17,7 +16,7 @@ const FlashDeals = () => {
     }
   }, [products]);
 
-  // Countdown timer logic
+ 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
@@ -26,7 +25,7 @@ const FlashDeals = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Format the time left (hours, minutes, seconds)
+ 
   const formatTime = (time) => {
     const hours = Math.floor(time / 3600);
     const minutes = Math.floor((time % 3600) / 60);
@@ -44,11 +43,11 @@ const FlashDeals = () => {
 
       <Carousel fade indicators={false} interval={5000}>
         {selectedProducts.map((product, index) => {
-          const oldPrice = (product.price * 1.2).toFixed(2); // 20% increase in price
+          const oldPrice = (product.price * 1.2).toFixed(2); 
           return (
             <Carousel.Item key={index}>
               <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between p-4 sm:p-6 bg-[#B5D6D6] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                {/* Product Image */}
+              
                 <div className="flex flex-col sm:flex-row items-center sm:items-start sm:space-x-6 w-full sm:w-auto">
                   <img
                     src={product.thumbnail}
@@ -76,7 +75,7 @@ const FlashDeals = () => {
                   </div>
                 </div>
 
-                {/* Countdown Timer */}
+               
                 <div className="mt-6 sm:mt-0 text-center sm:text-right w-full sm:w-auto">
                   <p className="text-sm text-[#0A141B] font-bold mb-2">
                     Hurry up! Offer ends in:

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import CartItem from '../components/CartItem';
+
 
 const Checkout = () => {
-  const { items } = useSelector((state) => state.cart); // assuming you have a cart slice
+  const { items } = useSelector((state) => state.cart); 
 
   const handleCheckout = () => {
-    // Handle the checkout process, maybe integrate a payment API
+    
   };
 
   return (

@@ -6,7 +6,7 @@ const ProductCarousel = ({ products }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
-    }, 3000); // Switch every 3 seconds
+    }, 3000); 
 
     return () => clearInterval(interval);
   }, [products]);

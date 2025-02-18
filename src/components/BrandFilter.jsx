@@ -34,7 +34,7 @@ const BrandFilter = ({ setSelectedBrand }) => {
               key={index}
               onClick={() => {
                 setSelectedBrand(brand);
-                setIsBrandsOpen(false); // Close dropdown after selecting brand
+                setIsBrandsOpen(false); 
               }}
               className="block w-full text-left px-5 py-2 text-[#0A141B] hover:bg-[#FF7477] transition"
             >

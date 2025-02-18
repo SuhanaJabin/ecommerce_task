@@ -78,30 +78,29 @@ const Home = () => {
 
   return (
     <div className="container mx-auto p-3 bg-gradient-to-b from-[#0A141B] to-[#9CF6F6] rounded-lg">
-     <h1 style={{ color: '#B5D6D6' }} className="text-4xl font-extrabold text-center mb-20">
+    <h1 className="featured-products">
   Featured Products
 </h1>
 
 
-      <div className="mb-8 ">
-        <Carousel className="rounded-lg overflow-hidden shadow-lg">
-          {featuredProducts.map((product) => {
-            return (
-              <Carousel.Item key={product.id}>
-                <img
-                  className="d-block w-full h-96 object-cover"
-                  src={product.thumbnail}
-                  alt={product.title}
-                />
-                <Carousel.Caption className="bg-gradient-to-t from-[#0A141B] to-transparent p-4">
-                  <h3 className="text-2xl text-white font-semibold">{product.title}</h3>
-                  <p className="text-white opacity-80">{product.description}</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            );
-          })}
-        </Carousel>
-      </div>
+
+      <div className="carousel-container">
+      <Carousel className="rounded-lg overflow-hidden shadow-lg">
+        {featuredProducts.map((product) => (
+          <Carousel.Item key={product.id} className="carousel-item">
+            <img
+              className="carousel-image"
+              src={product.thumbnail}
+              alt={product.title}
+            />
+            <Carousel.Caption className="carousel-caption">
+              <h3 className="carousel-caption-title">{product.title}</h3>
+              <p className="carousel-caption-description">{product.description}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </div>
       <div className='flex justify-center ' style={{marginTop:'3em',fontWeight: 'bold'}}>
       <FlashDeals />
       </div>
@@ -125,20 +124,20 @@ const Home = () => {
 
 
       <div className="mb-6 mt-6 flex flex-wrap justify-center gap-4 px-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center gap-4 w-full">
-          <button onClick={() => setSelectedCategory('beauty')} className="w-full md:w-auto bg-[#FF7477] text-white px-5 py-2 rounded-lg hover:bg-[#B5D6D6] transition">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center gap-4 w-full button-container">
+          <button onClick={() => setSelectedCategory('beauty')} className="w-full md:w-auto bg-[#FF7477] text-white px-5 py-2 rounded-lg hover:bg-[#B5D6D6] transition button-beauty">
             Beauty
           </button>
-          <button onClick={() => setSelectedCategory('groceries')} className="w-full md:w-auto bg-[#0A141B] text-white px-5 py-2 rounded-lg hover:bg-[#9CF6F6] transition">
+          <button onClick={() => setSelectedCategory('groceries')} className="w-full md:w-auto bg-[#0A141B] text-white px-5 py-2 rounded-lg hover:bg-[#9CF6F6] transition button-groceries">
             Groceries
           </button>
-          <button onClick={() => setSelectedCategory('furniture')} className="w-full md:w-auto bg-[#B5D6D6] text-[#0A141B] px-5 py-2 rounded-lg hover:bg-[#FF7477] transition">
+          <button onClick={() => setSelectedCategory('furniture')} className="w-full md:w-auto bg-[#B5D6D6] text-[#0A141B] px-5 py-2 rounded-lg hover:bg-[#FF7477] transition button-furniture">
             Furniture
           </button>
-          <button onClick={() => setSelectedCategory('fragrances')} className="w-full md:w-auto bg-[#9CF6F6] text-[#0A141B] px-5 py-2 rounded-lg hover:bg-[#CEB5B7] transition">
+          <button onClick={() => setSelectedCategory('fragrances')} className="w-full md:w-auto bg-[#9CF6F6] text-[#0A141B] px-5 py-2 rounded-lg hover:bg-[#CEB5B7] transition button-fragrances">
             Fragrances
           </button>
-          <button onClick={() => setSelectedCategory('')} className="w-full md:w-auto bg-[#CEB5B7] text-[#0A141B] px-5 py-2 rounded-lg hover:bg-[#FF7477] transition">
+          <button onClick={() => setSelectedCategory('')} className="w-full md:w-auto bg-[#CEB5B7] text-[#0A141B] px-5 py-2 rounded-lg hover:bg-[#FF7477] transition button-all-categories">
             All Categories
           </button>
         </div>
@@ -189,22 +188,24 @@ const Home = () => {
 
       <h2 className="text-3xl font-semibold text-center text-[#FF7477] mb-4">All Products</h2>
       <ProductList products={currentProducts} />
+      <div className="pagination-container">
+  <button
+    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+    className="pagination-button"
+  >
+    Previous
+  </button>
+  <span className="pagination-text">
+    {currentPage} of {totalPages}
+  </span>
+  <button
+    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+    className="pagination-button"
+  >
+    Next
+  </button>
+</div>
 
-      <div className="flex justify-center mt-8">
-        <button
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          className="bg-[#FF7477] text-white px-4 py-2 rounded-md"
-        >
-          Previous
-        </button>
-        <span className="px-4 py-2">{currentPage} of {totalPages}</span>
-        <button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-          className="bg-[#FF7477] text-white px-4 py-2 rounded-md"
-        >
-          Next
-        </button>
-      </div>
     </div>
 
   );
