@@ -18,7 +18,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signup-container flex mx-auto rounded-lg">
       <div className="signup-card">
         <h1 className="signup-title">Sign Up</h1>
         <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
