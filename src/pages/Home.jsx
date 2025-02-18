@@ -77,7 +77,7 @@ const Home = () => {
   const featuredProducts = items.filter((product) => product.rating >= 4.5);
 
   return (
-    <div className="container mx-auto p-3 bg-gradient-to-b from-[#0A141B] to-[#9CF6F6] rounded-lg">
+    <div className="container mx-auto p-1 bg-gradient-to-b from-[#0A141B] to-[#9CF6F6] rounded-lg">
     <h1 className="featured-products">
   Featured Products
 </h1>

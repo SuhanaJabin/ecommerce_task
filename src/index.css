@@ -443,5 +443,27 @@ h1.featured-products {
   }
 }
 
+.flash-deals-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem; /* You can adjust this for custom spacing */
+  background: linear-gradient(to right, #0a141b, #9cf6f6);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.flash-deals-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ceb5b7;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+
 
 
